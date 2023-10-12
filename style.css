@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.exp-tracker{
+    display:flex;  
+    align-items: center;
+    justify-content:center;
+    margin-top:2rem;
+
+}
+.heading{
+    font-size:4rem;
+}
+
+.heading2{
+    margin-top:0.7rem;
+    font-size:2rem;
+    margin-left:3rem;
+}
