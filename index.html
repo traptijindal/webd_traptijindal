@@ -1,73 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
+    <title>Expanse Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
-    <div class="main">
-    <div class="exp-tracker"> 
-        <p class="heading">Expense Tracker</p>
-    </div>
-    <div class="container" style ="
-    display: flex;"
-    flex-direction:column;
-    align-items:center;>
-        
-         <div class="heading2"><b>Your Amount</b></div>
-        <div id="balance" class="change">$0.00</div>
-        <div class="income-expense">
-            <div class="income">
-                
-                    <p class="i-e">INCOME -</p>
-                    <p id="income" class="income value change">
-                         +$0.00    
-                    </p>
-                
-                </div>
-               <div class="expense">
-                    <p class="i-e">EXPENSE -</p>
-                    <p id="expense" class="expense value change">
-                        -$0.00
-                    </p>
+<div class="wrapper">
+    <div class="container">
+        <div class="sub-container">
+            <div class="total-amount-container">
+                <h3>Budget</h3>
+                <p class="hide error" id="budget-error">
+                    Value cannot be empty or negative
+                </p>
+                <input type="number" id="total-amount" placeholder="Enter Total Amount">
+                <button class="submit" id="total-amount-button">Set Budget</button>
+
+            </div>
+            <div class="user-amount-container">
+                <h3>Expenses</h3>
+                <p class="hide errors" id="product-title">Values cannot be empty</p>
+                <input type="text" class="product-title" id="product-title"placeholder="Enter Title of Product"/>
+                <input type="number" id="user-amount" placeholder="Enter Cost"/>
+                <button class="submit" id="check-amount">Check Amount</button>
             </div>
         </div>
-        <div class="history">
-            <p class="his">History</p>
-          <div class="listhistory">
-            <ul>
-                <li class="minus change">
-                     Text <span>-burger</span>
-                  <li class="change"> Amount<span>-$400</span></li> 
-                    <li class="change">Date<span>-1/10/2004</span></li> 
-                
-            </ul>
-          </div>
-            <div class="add-new-transaction">
-                <p>Add New Transaction</p>
-                <form id="form">
-                    <div class="form-action">
-                        <label for="Text">Text</label>
-                        <input type="text"placeholder="Enter Text ...">
-                    </div>
-                    <div class="form-action">
-                        <label for="Amount">Amount</label>
-                        <input type="number" placeholder="Enter Amount ...">
-                    </div>
-                    <div class="form-action">
-                        <label for="Date">Date</label>
-                        <input type="date" placeholder="Enter Date ...">
-                    </div>
-                    <button class=""btn>All Transaction</button>
-                </form>
+         <div class="output-container flex-space">
+            <div>
+                <p>Total Budget</p>
+                <span id="amount">0</span>
             </div>
-        </div>
+            <div>
+                <p>Expenses</p>
+                <span id="Expenditure-value">0</span>
+            </div>
+            <div>
+                <p>Balance</p>
+                <span id="balance-amount">0</span>
+            </div>
+         </div>
     </div>
+    <div class="list">
+        <h3>Expense List</h3>
+        <div class="list-container" id="list"></div>
     </div>
-    <!--javascript-->
-    <script src="script.js"></script>
+</div>
+<script src="script.js"></script>
 </body>
+
 </html>
