@@ -130,7 +130,7 @@ padding:0.5em 0
 }
 .edit,.delete{
     display: flex;
-    background:transparent;
+    
     cursor:pointer;
     margin-right:1.5em;
     border:none;
