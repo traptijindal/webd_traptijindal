@@ -8,7 +8,7 @@ const productTitleError = document.getElementById("product-title-error");
 const productCostError =document.getElementById("product-cost-error");
 const amount=document.getElementById("amount");
 const expenditureValue = document.getElementById("expenditure-value");
-const balanceValue = document.getElementById("balance-amount");
+const balanceamount = document.getElementById("balance-amount");
 const list = document.getElementById("list");
 let tempAmount= 0;
 totalAmountButton.addEventListener("click",()=>{
@@ -19,7 +19,7 @@ totalAmountButton.addEventListener("click",()=>{
     else{
         errorMessage.classList.add("hide");
         amount.innerHTML = tempAmount;
-        balanceValue.innerText= tempAmount-expenditureValue.innerText;
+        balanceamount.innerText= tempAmount-expenditureValue.innerText;
         totalAmount.value="";
     }
 });
@@ -31,8 +31,8 @@ const disableButtons=(bool)=>{
     });
 };
 const modifyElement=(element,edit=false)=>{
-    let parentDiv = element.parent.Element;
-    let currentBalance = balanceValue.innerText;
+    let parentDiv = element.parentElement;
+    let currentBalance = balanceamount.innerText;
     let currentExpanse = expenditureValue.innerText;
     let parentAmount = parentDiv.querySelector(".amount").innerText;
     if(edit){
@@ -41,7 +41,7 @@ const modifyElement=(element,edit=false)=>{
         userAmount.value=parentAmount;
         disableButtons(true);
     }
-    balanceValue.innerText = parseInt(currentBalance) + parseInt(parentAmount);
+    balanceamount.innerText = parseInt(currentBalance) + parseInt(parentAmount);
     expenditureValue.innerText = parseInt(currentExpanse)-parseInt(parentAmount);
     parentDiv.remove();
 };
@@ -50,7 +50,7 @@ const listCreator = (expenseName,expenseValue) => {
     let sublistContent  = document.createElement("div");
     sublistContent.classList.add("sublist-content","flex-space");
     list.appendChild(sublistContent);
-    sublistContent.innerHTML =`<p class ="product">$
+    sublistContent.innerHTML =`<p class ="product-title">$
     {expenseName}</p><p class = "amount">$
     {expenseValue}</p>`;
     let editButton = document.createElement("button");
@@ -60,14 +60,14 @@ const listCreator = (expenseName,expenseValue) => {
     let deleteButton = document.createElement("button");
     deleteButton.classList.add("fa fa-minus-circle","delete");
     deleteButton.style.fontSize ="24px";
-    deleteButton.addEventListener("click",() =>{
+    deleteButton.addEventListener("click",()=>{
         modifyElement(deleteButton);
     });
     sublistContent.appendChild(editButton);
     sublistContent.append(deleteButton);
     document.getElementById("list").appendChild(sublistContent);
 };
-checkAmountButton.addEventListener("click",() => {
+checkAmountButton.addEventListener("click",()=>{
     if(!userAmount.value||!productTitle.value){ 
     productTitleError.classList.remove("hide");
     return false;
@@ -77,7 +77,7 @@ checkAmountButton.addEventListener("click",() => {
    let sum = parseInt(expenditureValue.innerText) + expenditure;
    expenditureValue.innerText = sum;
    const totalBalance = tempAmount - sum;
-   balanceValue.innerText = totalBalance;
+   balanceamount.innerText = totalBalance;
    listCreator(productTitle.value,userAmount.value);
    productTitle.value="";
    userAmount.value="";
