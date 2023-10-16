@@ -129,6 +129,7 @@ padding:0.5em 0
     margin-left:auto;
 }
 .edit,.delete{
+    display: flex;
     background:transparent;
     cursor:pointer;
     margin-right:1.5em;
