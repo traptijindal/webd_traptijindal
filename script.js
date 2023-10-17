@@ -27,7 +27,7 @@ totalAmountButton.addEventListener("click",()=>{
 
     let editButtons=document.getElementsByClassName("edit");
     Array.from(editButtons).forEach((element )=>{
-        element.disabled = bool;
+        
     });
 
 
