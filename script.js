@@ -24,12 +24,12 @@ totalAmountButton.addEventListener("click",()=>{
     }
 });
 
-const disableButtons=(bool)=>{
+
     let editButtons=document.getElementsByClassName("edit");
     Array.from(editButtons).forEach((element )=>{
         element.disabled = bool;
     });
-};
+
 
 
 const listCreator = (expenseName,expenseValue) => {
@@ -46,7 +46,7 @@ checkAmountButton.addEventListener("click",()=>{
     productTitleError.classList.remove("hide");
     return false;
 }
-   disableButtons(false);
+
    let expenditure = parseInt(userAmount.value);
    let sum = parseInt(expenditureValue.innerText) + expenditure;
    expenditureValue.innerText = sum;
