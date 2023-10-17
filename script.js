@@ -30,21 +30,7 @@ const disableButtons=(bool)=>{
         element.disabled = bool;
     });
 };
-const modifyElement=(element,edit=false)=>{
-    let parentDiv = element.parentElement;
-    let currentBalance = balanceamount.innerText;
-    let currentExpanse = expenditureValue.innerText;
-    let parentAmount = parentDiv.querySelector(".amount").innerText;
-    if(edit){
-        let parentText = parentDiv.querySelector(".product").innerText;
-        productTitle.value = parentText;
-        userAmount.value=parentAmount;
-        disableButtons(true);
-    }
-    balanceamount.innerText = parseInt(currentBalance) + parseInt(parentAmount);
-    expenditureValue.innerText = parseInt(currentExpanse)-parseInt(parentAmount);
-    parentDiv.remove();
-};
+
 
 const listCreator = (expenseName,expenseValue) => {
     let sublistContent  = document.createElement("div");
@@ -53,18 +39,6 @@ const listCreator = (expenseName,expenseValue) => {
     sublistContent.innerHTML =`<p class ="product-title">${expenseName}
     </p><p class = "amount">
     ${expenseValue}</p>`;
-    let editButton = document.createElement("button");
-    editButton.classList.add("fa fa-pencil-square-o");
-    editButton.style.fontSize="24px";
-    editButton.add.EventListener("click",()=> {modifyElement(editButton,true)});
-    let deleteButton = document.createElement("button");
-    deleteButton.classList.add("fa fa-minus-circle","delete");
-    deleteButton.style.fontSize ="24px";
-    deleteButton.addEventListener("click",()=>{
-        modifyElement(deleteButton);
-    });
-    sublistContent.appendChild(editButton);
-    sublistContent.append(deleteButton);
     document.getElementById("list").appendChild(sublistContent);
 };
 checkAmountButton.addEventListener("click",()=>{
